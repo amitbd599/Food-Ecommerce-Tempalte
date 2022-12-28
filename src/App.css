@@ -11,12 +11,15 @@ li {
 }
 
 :root {
-  --theme-color: #05a357;
+  --theme-color: #9333ea;
+}
+.container {
+  max-width: 1200px !important;
 }
 
 /* Header Section */
 header {
-  padding: 20px 30px;
+  padding: 20px 0;
 }
 header .sidebar .iconBox {
   padding: 0 20px;
@@ -42,7 +45,7 @@ header .sidebar .sidebarBody.active {
 }
 
 header .sidebar .sidebarBody .sidebarBody__inner {
-  width: 300px;
+  width: 280px;
   height: 100vh;
   background: #fff;
   transform: translateX(-100%);
@@ -67,7 +70,7 @@ header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  background: #eeeeee;
+  background: #fff;
 }
 header
   .sidebar
@@ -85,15 +88,34 @@ header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav ul {
   padding-left: 0;
 }
 header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav ul li {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e2e2e2;
 }
 header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav ul li a {
   display: block;
   font-size: 16px;
   color: #333;
   font-weight: 600;
-  padding: 10px 25px;
-  background: #cdf8b0;
+  padding: 14px 25px;
+  transition: all 0.2s linear;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav ul li a.active {
+  background: var(--theme-color);
+  color: #fff;
+}
+header
+  .sidebar
+  .sidebarBody
+  .sidebarBody__inner
+  .bodyCase
+  nav
+  ul
+  li
+  a.active:hover {
+  background: var(--theme-color);
+  color: #fff;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav ul li a:hover {
+  background: #f3e8ff;
 }
 header .sidebar .sidebarBody .sidebarBody__inner .iconBox {
   right: 0;
@@ -151,6 +173,8 @@ header .dropdownItems:hover .dropdownItems_data {
   visibility: visible;
   opacity: 1;
   top: 36px;
+  background: #fff;
+  z-index: 999;
 }
 header .dropdownItems .dropdownItems_inner li a {
   display: block;
@@ -169,7 +193,7 @@ header .dropdownItems .dropdownItems_inner li a {
   transition: all 0.2s linear;
 }
 header .dropdownItems .dropdownItems_inner li a:hover {
-  color: #05a357;
+  color: var(--theme-color);
 }
 
 header .registration,
@@ -191,7 +215,6 @@ header .login svg {
 
 header .cart {
   padding: 10px 10px;
-  cursor: pointer;
   font-weight: 600;
   color: #000000;
   font-size: 20px;
@@ -200,7 +223,10 @@ header .cart {
 header .cart svg {
   font-size: 30px;
 }
-header .cart .badgeText {
+header .cart .cartIcon_open {
+  cursor: pointer;
+}
+header .cart .cartIcon_open .badgeText {
   position: absolute;
   right: 0;
   top: 4px;
@@ -212,7 +238,308 @@ header .cart .badgeText {
   align-items: center;
   border-radius: 50%;
 }
-header .cart .badgeText span {
+header .cart .cartIcon_open .badgeText span {
   font-size: 12px;
   color: #fff;
+}
+header .cart .cartBody {
+  background: rgba(51, 51, 51, 0.534);
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s linear;
+}
+header .cart .cartBody.active {
+  opacity: 1;
+  visibility: visible;
+}
+header .cart .cartBody .cartBody_inner {
+  background: #fff;
+  position: fixed;
+  width: 350px;
+  min-height: 100vh;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  padding: 25px 20px;
+  transition: all 0.3s linear;
+  transform: translateX(100%);
+}
+header .cart .cartBody.active .cartBody_inner {
+  transform: translateX(0);
+}
+header .cart .cartBody .cartBody_inner .heading {
+  border-bottom: 1px solid #f3e8ff;
+  padding-bottom: 8px;
+}
+header .cart .cartBody .cartBody_inner .headingText span {
+  font-size: 20px;
+  font-weight: 700;
+  display: inline-block;
+}
+header .cart .cartBody .cartBody_inner .closeIcon span:nth-child(1) {
+  font-size: 15px;
+  cursor: pointer;
+}
+header .cart .cartBody .cartBody_inner .cartData {
+  margin-top: 20px;
+  border-bottom: 1px solid #f3e8ff;
+  padding-bottom: 10px;
+}
+header .cart .cartBody .cartBody_inner .cartData .titleIntro h4 {
+  font-size: 14px;
+}
+header .cart .cartBody .cartBody_inner .cartData .titleIntro span {
+  font-size: 25px;
+  font-weight: 700;
+  display: block;
+}
+header .cart .cartBody .cartBody_inner .cartData .imgFile img {
+  width: 100px;
+}
+header .cart .cartBody .cartBody_inner .cartData .imgFile .itemClose {
+  left: 54px;
+  top: -18px;
+  cursor: pointer;
+}
+header .cart .cartBody .cartBody_inner .cartData .imgFile .itemClose svg {
+  color: red;
+  font-size: 20px;
+}
+header .cart .cartBody .cartBody_inner .subTotal h2 {
+  font-size: 25px;
+  font-weight: 700;
+}
+header .cart .cartBody .cartBody_inner .checkBtn span {
+  background: #333;
+  color: #fff;
+  font-size: 15px;
+  padding: 14px 35px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ========== ProductSlider ========== */
+.productSlider {
+  margin: 10px 35px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 10px;
+}
+.productSlider .slider_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.productSlider .slider_body .img_file {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  transition: all 0.2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productSlider .slider_body:hover .img_file {
+  background: #e2e2e2;
+}
+.productSlider .slider_body .img_file img {
+  width: 70px;
+}
+.productSlider .slider_body .textFile {
+  font-size: 14px;
+  font-weight: 600;
+}
+.productSlider .slick-prev:before,
+.productSlider .slick-next:before {
+  color: #333;
+}
+
+/* ========== ProductSlider ========== */
+
+.cardSlider {
+  margin: 10px 0;
+}
+.cardSlider .cardSlider_body {
+  padding: 20px 20px;
+  box-shadow: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07))
+    drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner {
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner.Purple {
+  background: #9333ea;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner.Pink {
+  background: #db2777;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner.Green {
+  background: #16a34a;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner.Orange {
+  background: #ea580c;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner .textFile {
+  width: 75%;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner .textFile h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner .textFile a {
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 5px;
+  display: inline-block;
+  color: #333;
+}
+.cardSlider .cardSlider_body .cardSlider_body_inner .imgFile {
+  width: 35%;
+}
+
+.cardSlider .slick-prev:before,
+.cardSlider .slick-next:before {
+  color: #333;
+}
+
+/* ========== OpenAccountInfo ========== */
+
+.openAccountInfo {
+  margin: 10px 35px;
+}
+.openAccountInfo .upSection {
+  margin-top: 30px;
+}
+.openAccountInfo .upSection h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.openAccountInfo .upSection p {
+  font-size: 16px;
+}
+.openAccountInfo .downSection .leftSide {
+  margin-top: 15px;
+  padding: 25px 25px;
+  background: #475569;
+  border-radius: 10px;
+}
+.openAccountInfo .downSection .leftSide .headingText h3 {
+  font-size: 27px;
+  font-weight: 700;
+  color: #fff;
+}
+.openAccountInfo .downSection .leftSide .headingText p {
+  font-size: 14px;
+  color: #fff;
+}
+.openAccountInfo .downSection .leftSide .offerBtn {
+  background: #ea580c;
+  font-size: 11px;
+  padding: 1px 10px;
+  color: #fff;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.openAccountInfo .downSection .leftSide .seasonLife {
+  position: relative;
+}
+.openAccountInfo .downSection .leftSide .seasonLife span {
+  display: inline-block;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+  margin-left: 60px;
+}
+.openAccountInfo .downSection .leftSide .seasonLife span::after {
+  position: absolute;
+  content: "";
+  top: 10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #ea580c;
+}
+.openAccountInfo .downSection .leftSide .seasonLife h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+.openAccountInfo .downSection .leftSide .infoBtn {
+  margin-top: 5px;
+  display: inline-block;
+  font-size: 16px;
+  background: #fff;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  color: #333;
+  cursor: pointer;
+}
+.openAccountInfo .downSection .rightSide {
+  margin-top: 15px;
+}
+.openAccountInfo .downSection .rightSide .innerCard {
+  padding: 10px 10px;
+  border-radius: 10px;
+  width: 175px;
+  height: 144px;
+}
+.openAccountInfo .downSection .rightSide .innerCard.Purple {
+  background: #9333ea;
+}
+.openAccountInfo .downSection .rightSide .innerCard.Pink {
+  background: #db2777;
+}
+.openAccountInfo .downSection .rightSide .innerCard.Green {
+  background: #16a34a;
+}
+.openAccountInfo .downSection .rightSide .innerCard.Orange {
+  background: #ea580c;
+}
+.openAccountInfo .downSection .rightSide .innerCard.Cyan {
+  background: #0891b2;
+}
+.openAccountInfo .downSection .rightSide .innerCard.Violet {
+  background: #7c3aed;
+}
+.openAccountInfo .downSection .rightSide .innerCard h2 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.openAccountInfo .downSection .rightSide .innerCard span {
+  color: #fff;
+  font-size: 50px;
+}
+.openAccountInfo .downSection .rightSide .arrow {
+  padding: 0 10px;
+}
+.openAccountInfo .downSection .rightSide .arrow svg {
+  font-size: 30px;
+  color: #333;
 }

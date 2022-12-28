@@ -8,19 +8,25 @@ import {
   FaUserCheck,
   FaUserCog,
 } from "react-icons/fa";
-import { BsSearch, BsXLg } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { BsArrowRightShort, BsSearch, BsXLg } from "react-icons/bs";
+import { Link, NavLink } from "react-router-dom";
+import NavLinkData from "../Scripts/NavLinkData";
+
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
+  const [cart, SetCart] = useState(false);
   const sidebarControl = () => {
     setSidebar(!sidebar);
   };
+  const cartControl = () => {
+    SetCart(!cart);
+  };
   return (
     <header>
-      <Container fluid>
+      <Container>
         <Row>
           <Col>
-            <div className='d-flex align-items-center justify-content-around'>
+            <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
                 {/* Logo Section */}
                 <div className='logo'>
@@ -57,45 +63,18 @@ const Navbar = () => {
                         </div>
                         <nav>
                           <ul>
-                            <li>
-                              <Link to={"/"}>Home</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Categories</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Products</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Pages</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Blog</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>About Us</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Special Offer!</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Buy Porto!H</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Blog</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Contact</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Cart</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Registration</Link>
-                            </li>
-                            <li>
-                              <Link to={"/"}>Login</Link>
-                            </li>
+                            {NavLinkData.map((item, index) => (
+                              <li key={index}>
+                                <NavLink
+                                  className={(navData) =>
+                                    navData.isActive && "active"
+                                  }
+                                  to={item.link}
+                                >
+                                  {item.title}
+                                </NavLink>
+                              </li>
+                            ))}
                           </ul>
                         </nav>
                       </div>
@@ -106,6 +85,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
+              {/* Zip Code & Search Section */}
               <div className='d-flex align-items-center'>
                 <div className='zipCode'>
                   <span>
@@ -114,10 +94,17 @@ const Navbar = () => {
                   <span className='ps-2'>Berlin • Jetzt</span>
                 </div>
                 <div className='search d-flex align-items-center'>
-                  <span>
-                    <BsSearch />
-                  </span>{" "}
-                  <span className='ps-2'>Search Insider</span>
+                  <div>
+                    <span>
+                      <BsSearch />
+                    </span>{" "}
+                    <span className='ps-2'>Search Insider</span>
+                  </div>
+                  <div className='searchPopUp'>
+                    <div>
+                      <h2>Search</h2>
+                    </div>
+                  </div>
                 </div>
                 <div className='dropdownItems position-relative'>
                   <div>
@@ -167,6 +154,7 @@ const Navbar = () => {
                   <span>Blog</span>
                 </div>
               </div>
+              {/* Registration & Login Section */}
               <div className='d-flex align-items-center'>
                 <div className='registration d-flex align-items-center'>
                   <span>
@@ -180,12 +168,113 @@ const Navbar = () => {
                   </span>
                   <span className='ps-1'>Login</span>
                 </div>
-                <div className='cart'>
-                  <span>
-                    <FaCartPlus />
-                  </span>
-                  <div className='badgeText'>
-                    <span>3</span>
+                <div className='cart position-relative'>
+                  <div className='cartIcon_open' onClick={cartControl}>
+                    <span>
+                      <FaCartPlus />
+                    </span>
+                    <div className='badgeText'>
+                      <span>3</span>
+                    </div>
+                  </div>
+                  <div className={cart ? "cartBody active" : "cartBody"}>
+                    <div className='cartBody_inner'>
+                      <div className='heading d-flex justify-content-between align-items-center'>
+                        <div className='headingText'>
+                          <span>SHOPPING CART</span>
+                        </div>
+                        <div
+                          className='closeIcon d-flex justify-content-between align-items-center'
+                          onClick={cartControl}
+                        >
+                          <span>Close</span>
+                          <span>
+                            <BsArrowRightShort />
+                          </span>
+                        </div>
+                      </div>
+                      <div className='mt-4'>
+                        <div className='cartData'>
+                          <div className='d-flex justify-content-between '>
+                            <div className='titleIntro pe-3'>
+                              <h4>
+                                Baccarat Rouge 540 70ml Men's and Women's
+                                Perfume . . .
+                              </h4>
+                              <span>1 x 150$</span>
+                            </div>
+                            <div className='imgFile position-relative'>
+                              <img
+                                className='img-fluid'
+                                src='https://res.cloudinary.com/amitjs/image/upload/v1672243515/Other/korean-removebg-preview_lud2pf.png'
+                                alt=''
+                              />
+                              <span className='position-absolute itemClose'>
+                                <BsXLg />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='cartData'>
+                          <div className='d-flex justify-content-between '>
+                            <div className='titleIntro pe-3'>
+                              <h4>
+                                Baccarat Rouge 540 70ml Men's and Women's
+                                Perfume . . .
+                              </h4>
+                              <span>1 x 150$</span>
+                            </div>
+                            <div className='imgFile position-relative'>
+                              <img
+                                className='img-fluid'
+                                src='https://res.cloudinary.com/amitjs/image/upload/v1672243428/Other/fastfood-removebg-preview_dkk59r.png'
+                                alt=''
+                              />
+                              <span className='position-absolute itemClose'>
+                                <BsXLg />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='cartData'>
+                          <div className='d-flex justify-content-between '>
+                            <div className='titleIntro pe-3'>
+                              <h4>
+                                Baccarat Rouge 540 70ml Men's and Women's
+                                Perfume . . .
+                              </h4>
+                              <span>1 x 150$</span>
+                            </div>
+                            <div className='imgFile position-relative'>
+                              <img
+                                className='img-fluid'
+                                src='https://res.cloudinary.com/amitjs/image/upload/v1672241752/Other/convenience_spxrqq.png'
+                                alt=''
+                              />
+                              <span className='position-absolute itemClose'>
+                                <BsXLg />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='mt-4'>
+                        <div className='subTotal d-flex justify-content-between align-items-center'>
+                          <h2>Subtotal:</h2>
+                          <h2>360$</h2>
+                        </div>
+                      </div>
+                      <div className='mt-4'>
+                        <div className='checkBtn d-flex justify-content-between align-items-center'>
+                          <div>
+                            <span>VIEW CART</span>
+                          </div>
+                          <div>
+                            <span>CHECKOUT</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
