@@ -1,38 +1,218 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none !important;
+}
+ul,
+li {
+  list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --theme-color: #05a357;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Header Section */
+header {
+  padding: 20px 30px;
 }
-
-.App-header {
-  background-color: #282c34;
+header .sidebar .iconBox {
+  padding: 0 20px;
+}
+header .sidebar .iconBox .open {
+  font-size: 25px;
+  cursor: pointer;
+}
+header .sidebar .sidebarBody {
+  background: rgba(51, 51, 51, 0.534);
+  width: 100%;
   min-height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s linear;
+}
+header .sidebar .sidebarBody.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+header .sidebar .sidebarBody .sidebarBody__inner {
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  transform: translateX(-100%);
+  transition: all 0.3s linear;
+}
+header .sidebar .sidebarBody.active .sidebarBody__inner {
+  transform: translateX(0);
+}
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase .logoSection {
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  height: 90px;
+}
+
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase .logoSection img {
+  width: 150px;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav {
+  height: calc(100vh - 90px);
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background: #eeeeee;
+}
+header
+  .sidebar
+  .sidebarBody
+  .sidebarBody__inner
+  .bodyCase
+  nav::-webkit-scrollbar {
+  display: none;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav ul {
+  padding-left: 0;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav ul li {
+  border-bottom: 1px solid #ddd;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .bodyCase nav ul li a {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  padding: 10px 25px;
+  background: #cdf8b0;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .iconBox {
+  right: 0;
+  right: 16px;
+  top: 30px;
+}
+header .sidebar .sidebarBody .sidebarBody__inner .iconBox .close {
+  font-size: 25px;
+  cursor: pointer;
+  color: #333;
+}
+
+header .zipCode,
+header .search {
+  background: #eeeeee;
+  padding: 10px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: all 0.1s linear;
+  font-size: 16px;
+}
+header .zipCode:hover,
+header .search:hover {
+  background: #e2e2e2;
+}
+
+header .dropdownItems .navItem,
+header .blog {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-weight: 600;
+  transition: all 0.1s linear;
+}
+
+header .dropdownItems .dropdownItems_data {
+  position: absolute;
+  top: 50px;
+  padding-top: 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+header .dropdownItems .dropdownItems_inner {
+  background: #fff;
+  padding: 14px 0 !important;
+  min-width: 250px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(37, 47, 63, 0.1);
+}
+header .dropdownItems:hover .dropdownItems_data {
+  visibility: visible;
+  opacity: 1;
+  top: 36px;
+}
+header .dropdownItems .dropdownItems_inner li a {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  padding: 5px 20px;
+  transition: all 0.2s linear;
+}
+header .dropdownItems .dropdownItems_inner li a {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  padding: 5px 20px;
+  transition: all 0.2s linear;
+}
+header .dropdownItems .dropdownItems_inner li a:hover {
+  color: #05a357;
+}
+
+header .registration,
+header .login {
+  background: #000000;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+}
+header .registration svg,
+header .login svg {
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+header .cart {
+  padding: 10px 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #000000;
+  font-size: 20px;
+  position: relative;
+}
+header .cart svg {
+  font-size: 30px;
+}
+header .cart .badgeText {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  background: var(--theme-color);
+  width: 20px;
+  height: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border-radius: 50%;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header .cart .badgeText span {
+  font-size: 12px;
+  color: #fff;
 }
