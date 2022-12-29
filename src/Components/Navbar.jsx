@@ -363,18 +363,23 @@ const Navbar = () => {
               </div>
               {/* Registration & Login Section */}
               <div className='d-flex align-items-center'>
-                <div className='registration d-flex align-items-center'>
-                  <span>
-                    <FaUserCog />
-                  </span>
-                  <span className='ps-1'>Registration</span>
-                </div>
-                <div className='login d-flex align-items-center'>
-                  <span>
-                    <FaUserCheck />
-                  </span>
-                  <span className='ps-1'>Login</span>
-                </div>
+                <Link to={"/registration"}>
+                  <div className='registration d-flex align-items-center'>
+                    <span>
+                      <FaUserCog />
+                    </span>
+                    <span className='ps-1'>Registration</span>
+                  </div>
+                </Link>
+
+                <Link to={"/login"}>
+                  <div className='login d-flex align-items-center'>
+                    <span>
+                      <FaUserCheck />
+                    </span>
+                    <span className='ps-1'>Login</span>
+                  </div>
+                </Link>
                 <div className='cart position-relative'>
                   <div className='cartIcon_open' onClick={cartControl}>
                     <span>

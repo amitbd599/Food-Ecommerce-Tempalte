@@ -673,3 +673,288 @@ header .cart .cartBody .cartBody_inner .checkBtn span {
   font-size: 30px;
   color: #333;
 }
+
+/* ========== Spinner ========== */
+
+.spinner {
+  margin: 40px 0;
+}
+
+.spinner .upSection {
+  margin-top: 30px;
+}
+.spinner .upSection h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.spinner .upSection p {
+  font-size: 16px;
+}
+.spinner .downSection {
+  margin-top: 30px;
+}
+.spinner .downSection .spinner_body {
+  display: flex !important;
+  justify-content: center !important;
+}
+.spinner .downSection .spinner_body .outerRound {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid #e2e2e2;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner .downSection .spinner_body .outerRound .innerRound {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid #e2e2e2;
+  background-color: #9333ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner .downSection .spinner_body .outerRound .innerRound span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile img {
+  position: absolute;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img:nth-child(1) img {
+  top: 0px;
+  right: 110px;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img:nth-child(2) img {
+  top: 45px;
+  right: 190px;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img:nth-child(3) img {
+  top: 127px;
+  right: 215px;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img:nth-child(4) img {
+  top: 208px;
+  right: 158px;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img:nth-child(5) img {
+  top: 208px;
+  right: 62px;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img:nth-child(6) img {
+  top: 120px;
+  right: 2px;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img:nth-child(7) img {
+  top: 38px;
+  right: 28px;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile img {
+  width: 80px;
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img {
+}
+.spinner .downSection .spinner_body .outerRound .imgFile .img .tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.spinner .downSection .slick-prev:before,
+.spinner .downSection .slick-next:before {
+  color: #333;
+}
+
+/* ========== Login Page ========== */
+.login {
+  margin-top: 40px;
+}
+.login .login_body {
+  overflow: hidden;
+  max-height: 386px;
+  margin: 0 80px;
+  border-radius: 10px;
+  padding: 20px 0;
+  box-shadow: 0px 4px 10px rgba(37, 47, 63, 0.1);
+}
+.login .login_body .imgFile {
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 5px;
+}
+.login .login_body .imgFile img {
+  border-radius: 5px;
+}
+.login .login_body .input_body {
+  overflow: hidden;
+  padding: 10px;
+}
+.login .login_body .input_body .headerText h2 {
+  font-size: 25px;
+  font-weight: 700;
+}
+.login .login_body .input_body .inputField label {
+  font-size: 15px;
+  color: #333;
+}
+.login .login_body .input_body .inputField input {
+  font-size: 15px;
+  color: #333;
+  border: 1px solid #ddd;
+  width: 350px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+.login .login_body .input_body .inputField .loginBtn {
+  background: #9333ea;
+  padding: 12px 35px;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+}
+
+/* ========== Registration Page ========== */
+
+.registration {
+  margin-top: 40px;
+}
+.registration .login_body {
+  overflow: hidden;
+  max-height: 100%;
+  margin: 0 80px;
+  border-radius: 10px;
+  padding: 20px 0;
+  box-shadow: 0px 4px 10px rgba(37, 47, 63, 0.1);
+}
+.registration .login_body .imgFile {
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 5px;
+}
+.registration .login_body .imgFile img {
+  border-radius: 5px;
+}
+.registration .login_body .input_body {
+  overflow: hidden;
+  padding: 10px;
+}
+.registration .login_body .input_body .headerText h2 {
+  font-size: 25px;
+  font-weight: 700;
+}
+.registration .login_body .input_body .inputField label {
+  font-size: 15px;
+  color: #333;
+}
+.registration .login_body .input_body .inputField input {
+  font-size: 15px;
+  color: #333;
+  border: 1px solid #ddd;
+  width: 350px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+.registration .login_body .input_body .inputField .loginBtn {
+  background: #9333ea;
+  padding: 12px 35px;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+}
+
+/* ========== Footer Section ========== */
+
+.footer {
+  margin-top: 80px;
+  background: #000000;
+  padding: 30px 0;
+}
+.footer .part_1 p {
+  font-size: 15px;
+  color: #fff;
+  margin-top: 10px;
+}
+.footer .part_2 h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+.footer .part_2 h2::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  bottom: -8px;
+  left: 0;
+}
+.footer .part_2 h4 {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0;
+}
+.footer .part_2 span {
+  font-size: 12px;
+  color: #fff;
+  display: block;
+}
+
+.footer .part_3 h2,
+.footer .part_4 h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+.footer .part_3 h2::after,
+.footer .part_4 h2::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  bottom: -8px;
+  left: 0;
+}
+
+.footer .part_3 ul,
+.footer .part_4 ul {
+  padding-left: 0;
+  margin-top: 5px;
+}
+.footer .part_3 ul li,
+.footer .part_4 ul li {
+  padding: 2px 0;
+}
+.footer .part_3 ul li a {
+  color: #ddd;
+  font-size: 15px;
+  transition: all 0.2s linear;
+}
+.footer .part_3 ul li a:hover {
+  color: #fff;
+}
+
+.footer .part_4 span {
+  margin-right: 10px;
+}
+.footer .part_4 span svg {
+  font-size: 55px;
+  color: #fff;
+}
+.footer .part_4 .FaEnvelopeOpen svg {
+  font-size: 20px;
+  color: #fff;
+}
