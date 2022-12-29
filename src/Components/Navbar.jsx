@@ -5,21 +5,28 @@ import {
   FaBars,
   FaCartPlus,
   FaMapMarkerAlt,
+  FaSearch,
   FaUserCheck,
   FaUserCog,
 } from "react-icons/fa";
 import { BsArrowRightShort, BsSearch, BsXLg } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 import NavLinkData from "../Scripts/NavLinkData";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
   const [cart, SetCart] = useState(false);
+  const [search, SetSearch] = useState(false);
   const sidebarControl = () => {
     setSidebar(!sidebar);
   };
   const cartControl = () => {
     SetCart(!cart);
+  };
+  const searchControl = () => {
+    SetSearch(!search);
   };
   return (
     <header>
@@ -94,15 +101,215 @@ const Navbar = () => {
                   <span className='ps-2'>Berlin • Jetzt</span>
                 </div>
                 <div className='search d-flex align-items-center'>
-                  <div>
+                  <div onClick={searchControl}>
                     <span>
                       <BsSearch />
                     </span>{" "}
                     <span className='ps-2'>Search Insider</span>
                   </div>
-                  <div className='searchPopUp'>
-                    <div>
-                      <h2>Search</h2>
+                  <div
+                    className={search ? "searchPopUp active" : "searchPopUp"}
+                  >
+                    <div className=''>
+                      <div className='search_input position-relative d-flex justify-content-around '>
+                        <div className='logo mt-2' onClick={searchControl}>
+                          <Link to={"/"}>
+                            <img
+                              className='img-fluid'
+                              src='/Assets/img/logo.svg'
+                              alt=''
+                            />
+                          </Link>
+                        </div>
+                        <div className='search_inner position-relative'>
+                          <div className='searchIcon_body'>
+                            <span className='searchIcon position-absolute'>
+                              <FaSearch />
+                            </span>
+                            <input
+                              type='search'
+                              placeholder='Search Location or Zip Code'
+                            />
+                            <span
+                              className='closeIcon position-absolute'
+                              onClick={searchControl}
+                            >
+                              <BsXLg />
+                            </span>
+                          </div>
+                          <div className='recentSearchIntro'>
+                            <div className='recentSearchIntro_body'>
+                              <h2>Recent Search Insider</h2>
+                              <div>
+                                <Tabs>
+                                  <TabList>
+                                    <Tab>Recent Search</Tab>
+                                    <Tab>Restaurants</Tab>
+                                    <Tab>Lebensmittel</Tab>
+                                    <Tab>Convenience</Tab>
+                                    <Tab>Alkohol</Tab>
+                                  </TabList>
+
+                                  <TabPanel>
+                                    <div className='mt-3 searchInsider'>
+                                      <div>
+                                        <ul>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Pizza</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Fast Food</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Sushi</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Kebab</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Neueste Angebote</span>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </TabPanel>
+                                  <TabPanel>
+                                    <div className='mt-3 searchInsider'>
+                                      <div>
+                                        <ul>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Sushi</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Kebab</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Neueste Angebote</span>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </TabPanel>
+                                  <TabPanel>
+                                    <div className='mt-3 searchInsider'>
+                                      <div>
+                                        <ul>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Fast Food</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Sushi</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Kebab</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Neueste Angebote</span>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </TabPanel>
+                                  <TabPanel>
+                                    <div className='mt-3 searchInsider'>
+                                      <div>
+                                        <ul>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Sushi</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Kebab</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Neueste Angebote</span>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </TabPanel>
+                                  <TabPanel>
+                                    <div className='mt-3 searchInsider'>
+                                      <div>
+                                        <ul>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Fast Food</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Sushi</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Kebab</span>
+                                          </li>
+                                          <li>
+                                            <span className='pe-2'>
+                                              <FaSearch />
+                                            </span>
+                                            <span>Neueste Angebote</span>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </TabPanel>
+                                </Tabs>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
