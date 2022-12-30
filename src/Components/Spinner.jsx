@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
-import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 const Spinner = () => {
   const settings = {
@@ -13,11 +12,7 @@ const Spinner = () => {
     cssEase: "linear",
     pauseOnHover: true,
   };
-  const optionsCursorTrueWithMargin = {
-    followCursor: true,
-    shiftX: 20,
-    shiftY: 0,
-  };
+
   return (
     <section className='spinner'>
       <Container>

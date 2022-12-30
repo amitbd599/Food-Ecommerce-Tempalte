@@ -20,7 +20,7 @@ input:focus-visible {
   max-width: 1200px !important;
 }
 
-/* Header Section */
+/* ========== Header Section ========== */
 header {
   padding: 20px 0;
 }
@@ -131,7 +131,7 @@ header .sidebar .sidebarBody .sidebarBody__inner .iconBox .close {
   color: #333;
 }
 
-header .zipCode,
+header .zipCode .zipCodeBtn,
 header .search {
   background: #eeeeee;
   padding: 10px 12px;
@@ -142,9 +142,88 @@ header .search {
   transition: all 0.1s linear;
   font-size: 16px;
 }
-header .zipCode:hover,
+header .zipCode .zipCodeBtn:hover,
 header .search:hover {
   background: #e2e2e2;
+}
+header .zipCode .zipCodePopup {
+  padding: 30px 100px;
+  background: rgba(51, 51, 51, 0.534);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  cursor: default;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s linear;
+}
+header .zipCode .zipCodePopup.active {
+  opacity: 1;
+  visibility: visible;
+}
+header .zipCode .zipCodePopup .zipCode_input {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 420px;
+  height: auto;
+}
+header .zipCode .zipCodePopup .zipCode_input h2 {
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: 700;
+}
+header .zipCode .zipCodePopup .zipCode_input h2 {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 700;
+}
+header .zipCode .zipCodePopup .zipCode_input svg {
+  font-size: 20px;
+}
+header .zipCode .zipCodePopup .zipCode_input .zipCodeBtn {
+  font-size: 16px;
+  background: #eeeeee;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+header .zipCode .zipCodePopup .zipCode_input .searchBox input {
+  width: 100%;
+  height: 45px;
+  border: none;
+  background: #ddd;
+  padding: 10px 14px;
+  border-radius: 5px;
+  display: block;
+}
+header .zipCode .zipCodePopup .zipCode_input .searchBox svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px;
+  font-size: 50px;
+  cursor: pointer;
+}
+header .zipCode .zipCodePopup .zipCode_input .filterBtn {
+  font-size: 16px;
+  background: #eeeeee;
+  padding: 10px 40px;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;
+  background: var(--theme-color);
+  color: #fff;
+  margin-bottom: 20px;
+}
+header .zipCode .zipCodePopup .zipCode_input .closeIcon {
+  right: 24px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 28px;
 }
 header .search .searchPopUp {
   padding: 30px 100px;

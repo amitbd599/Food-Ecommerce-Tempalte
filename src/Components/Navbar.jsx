@@ -19,6 +19,7 @@ const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
   const [cart, SetCart] = useState(false);
   const [search, SetSearch] = useState(false);
+  const [zip, SetZip] = useState(false);
   const sidebarControl = () => {
     setSidebar(!sidebar);
   };
@@ -27,6 +28,9 @@ const Navbar = () => {
   };
   const searchControl = () => {
     SetSearch(!search);
+  };
+  const zipControl = () => {
+    SetZip(!zip);
   };
   return (
     <header>
@@ -94,11 +98,81 @@ const Navbar = () => {
               </div>
               {/* Zip Code & Search Section */}
               <div className='d-flex align-items-center'>
-                <div className='zipCode'>
-                  <span>
-                    <FaMapMarkerAlt />
-                  </span>
-                  <span className='ps-2'>Berlin • Jetzt</span>
+                <div className='zipCode position-relative'>
+                  <div>
+                    <div className='zipCodeBtn' onClick={zipControl}>
+                      <span>
+                        <FaMapMarkerAlt />
+                      </span>
+                      <span className='ps-2'>Berlin • Jetzt</span>
+                    </div>
+                    <div
+                      className={zip ? "zipCodePopup active" : "zipCodePopup"}
+                    >
+                      <div className='d-flex justify-content-center'>
+                        <div className='zipCode_input position-relative'>
+                          <div className='w-100'>
+                            <div>
+                              <h2>Location-Details</h2>
+                              <div>
+                                <div className='d-flex justify-content-between mt-4'>
+                                  <div>
+                                    <span>
+                                      <FaMapMarkerAlt />
+                                    </span>
+                                    <span className='ps-1 '>Berlin</span>
+                                  </div>
+                                  <div>
+                                    <span className='zipCodeBtn'>Berlin</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div>
+                                <div className='d-flex justify-content-between mt-4'>
+                                  <div>
+                                    <span>
+                                      <FaMapMarkerAlt />
+                                    </span>
+                                    <span className='ps-1 '>Berlin</span>
+                                  </div>
+                                  <div>
+                                    <span className='zipCodeBtn'>Berlin</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <hr />
+                              <div className='searchBox position-relative'>
+                                <div className=' mt-4'>
+                                  <div>
+                                    <input
+                                      type='text'
+                                      placeholder='Search Location'
+                                    />
+                                    <span>
+                                      <FaSearch />
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className='filterBtn  mt-4'>
+                                <div className=' d-flex justify-content-center'>
+                                  <span>Filter</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              className='closeIcon position-absolute'
+                              onClick={zipControl}
+                            >
+                              <span>
+                                <BsXLg />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className='search d-flex align-items-center'>
                   <div onClick={searchControl}>
@@ -110,7 +184,7 @@ const Navbar = () => {
                   <div
                     className={search ? "searchPopUp active" : "searchPopUp"}
                   >
-                    <div className=''>
+                    <div>
                       <div className='search_input position-relative d-flex justify-content-around '>
                         <div className='logo mt-2' onClick={searchControl}>
                           <Link to={"/"}>
